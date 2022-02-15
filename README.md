@@ -15,6 +15,6 @@ An alarm system for people who have siblings who like to steal their stuff. When
 2. (Possibly) Add speaker
 
 ### File Descriptions
-1. Accurate_Pin_Diagram.png: Wiring diagram that accurately corresponds to pin assignments made in code.
+1. Diagram.png: Wiring diagram that accurately corresponds to pin assignments made in code.
 2. Closet_Buzzer: General notes about compponents (eg. pinouts).
 3. ultrasonic_buzzer.ino: Progam uploaded to Arduino
