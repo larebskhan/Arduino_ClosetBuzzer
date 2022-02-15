@@ -1,4 +1,5 @@
 #include <LiquidCrystal.h>
+#include <Servo.h>
 
 /*GLOBAL VARIABLES*/
 
@@ -19,8 +20,14 @@ int rs = 6;
 int contPin = 5;
 int contVal = 80;
 
+//Servo Pins
+int servoPin = 2;
+
 //Create LCD object
 LiquidCrystal lcd(rs, en, reg0, reg1, reg2, reg3);
+
+//Servo motor
+Servo servoMotor1;
 
 void setup() {
   // Buzzer Setup
@@ -32,36 +39,48 @@ void setup() {
   // LCD Setup
   analogWrite(contPin, contVal);
   lcd.begin(16,2);
+  
+  //Servo Motor Setup
+  servoMotor1.attach(servoPin);
 }
 void loop() {
-  sensDistance = sensorDistance();
-  
-  //clear lcd
-  lcd.clear();
+  for(int i = 0; i < 180; i++)
+  {
+    //clear lcd
+    lcd.clear();
+    
+    //Get distance
+    sensDistance = sensorDistance();
+    
+    servoMotor1.write(i);
 
-  if(sensDistance < 25)
-  {
-    tone(buzzer1, 1800);
-    delay(100);
-    lcd.print("ENOUGH!");
-    noTone(buzzer1);
-    delay(100);
-  }
-  else if(sensDistance < 50)
-  {
-    tone(buzzer1, 1800);
-    delay(250);
-    lcd.print("STOP!");
-    noTone(buzzer1);
-    delay(250);
-  }
-  else if(sensDistance < 100)
-  {
-    tone(buzzer1, 1800);
-    delay(500);
-    lcd.print("GO AWAY PLEASE!");
-    noTone(buzzer1);
-    delay(500);
+    if(sensDistance < 25)
+    {
+      tone(buzzer1, 1800);
+      delay(100);
+      lcd.print("ENOUGH!");
+      noTone(buzzer1);
+      delay(100);
+      i-=1; //make motor stay in same place if it sees something
+    }
+    else if(sensDistance < 50)
+    {
+      tone(buzzer1, 1800);
+      delay(250);
+      lcd.print("STOP!");
+      noTone(buzzer1);
+      delay(250);
+      i-=1; //make motor stay in same place if it sees something
+    }
+    else if(sensDistance < 100)
+    {
+      tone(buzzer1, 1800);
+      delay(500);
+      lcd.print("GO AWAY PLEASE!");
+      noTone(buzzer1);
+      delay(500);
+      i-=1; //make motor stay in same place if it sees something
+    }
   }
 }
 
