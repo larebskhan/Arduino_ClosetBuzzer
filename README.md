@@ -14,6 +14,7 @@ An alarm system for people who have siblings who like to steal their stuff. When
 ### TODO
 1. Add Lights
 2. (Possibly) Add speaker
+3. Upload Working Video
 
 ### File Descriptions
 1. Diagram.png: Wiring diagram that accurately corresponds to pin assignments made in code.
