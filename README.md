@@ -3,12 +3,13 @@
 An alarm system for people who have siblings who like to steal their stuff. When someone is within a certain distance of the sensor, the active buzzer will begin to beep (and this rate will increase as the person gets closer). This sensor will rotate 180 degrees. An LCD will also show messages to the stealer. 
 
 ### Components Used
-1. Arduino Uno Board
-2. Wires
-3. Active Buzzer
-4. Ultrasonic Sensor
-5. LCD
-6. Servo Motor
+1. Arduino Uno
+2. Breadboard
+3. Wires
+4. Active Buzzer
+5. Ultrasonic Sensor
+6. LCD
+7. Servo Motor
 
 ### TODO
 1. Add Lights
